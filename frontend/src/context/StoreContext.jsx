@@ -17,14 +17,14 @@ const storeContextProvider = (props) => {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
     if(token){
-      await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
+      await axios.post("https://gocuisine4.onrender.com/api/cart/add",{itemId},{headers:{token}})
     }
   };
 
   const removeFromCart = async (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if(token){
-      await axios.post(url+'/api/cart/remove',{itemId},{headers:{token}});
+      await axios.post('https://gocuisine4.onrender.com/api/cart/remove',{itemId},{headers:{token}});
     }
   };
 
@@ -40,12 +40,12 @@ const storeContextProvider = (props) => {
   };
    
   const fetchFoodList=async ()=>{
-    const response=await axios.get(url+"/api/food/list")
+    const response=await axios.get("https://gocuisine4.onrender.com/api/food/list")
     setFoodList(response.data.data)
   }
 
   const loadCartData=async(token)=>{
-    const response=await axios.post(url+"/api/cart/get",{},{headers:{token}});
+    const response=await axios.post("https://gocuisine4.onrender.com/api/cart/get",{},{headers:{token}});
     setCartItems(response.data.cartData);
   }
 

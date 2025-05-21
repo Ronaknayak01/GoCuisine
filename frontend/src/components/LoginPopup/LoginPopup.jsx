@@ -24,7 +24,7 @@ const LoginPopup = ({setShowLogin}) => {
 
   const onLogin=async(event)=>{
     event.preventDefault()
-    let newUrl=url;
+    let newUrl="https://gocuisine4.onrender.com";
 
     if(currState=="Login"){
       newUrl+="/api/user/login"
