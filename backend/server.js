@@ -13,7 +13,14 @@ const port=4000
 
 //middleware
 app.use(express.json())
-app.use(cors())
+// app.use(cors())
+const corsOptions = {
+    origin: ['https://gocuisine3.onrender.com','http://localhost:3000'],
+    methods: 'GET,PUT,PATCH,POST,DELETE', // Specify allowed HTTP methods
+    optionsSuccessStatus: 200,
+  };
+
+  app.use(cors(corsOptions));
 
 app.get("/",(req,res)=>{
     res.send("API Working")
